@@ -21,15 +21,15 @@ func _physics_process(delta: float) -> void:
 	if !movement:
 		var direction = Vector2.ZERO
 		#calls for directions
-		if Input.is_action_just_pressed("move_left"):
+		if Input.is_action_just_pressed("move_left") && !$left.is_colliding():
 			direction = Vector2.LEFT
 			AnimSprite2d.play("idle_left")
-		elif Input.is_action_just_pressed("move_right"):
+		elif Input.is_action_just_pressed("move_right") && !$right.is_colliding():
 			direction = Vector2.RIGHT
 			AnimSprite2d.play("idle_right")
-		elif Input.is_action_just_pressed("move_up"):
+		elif Input.is_action_just_pressed("move_up") && !$up.is_colliding():
 			direction = Vector2.UP
-		elif Input.is_action_just_pressed("move_down"):
+		elif Input.is_action_just_pressed("move_down") && !$down.is_colliding():
 			direction = Vector2.DOWN
 		
 		if direction != Vector2.ZERO:
@@ -45,5 +45,4 @@ func _physics_process(delta: float) -> void:
 			position = target_area
 			movement = false
 		
-		if target_area == collision_mask:
-			movement = false
+		

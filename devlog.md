@@ -13,3 +13,4 @@
 - Provided grid-based movement for player  
 - Created tilemaps for stage level  
 *Bug: Movement not optimized for tilemap*  
+*Temporary Fix: Used raycast for checking collision. Boundaries are checked, tilemaps are not*  
