@@ -12,7 +12,7 @@
 ## Features (In Progress)
 - Simple Pixel Art Graphics
 - Basic Tile-Based Movement System  
-- Scoring System  
+- Scoring System
 
 ---
 
