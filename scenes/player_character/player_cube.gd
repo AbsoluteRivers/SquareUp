@@ -3,38 +3,47 @@ extends CharacterBody2D
 
 @export var AnimSprite2d: AnimatedSprite2D
 
-#var SPEED: float = 100.0
-#var ACC = int = 5.0
+@export var SPEED: float = 100.0 #speed of travelling to next tile
+@export var grid_size: int = 16 #dimensions of each square in land
 
-var currPos = [8.0,8.0]
-
-
-
+var target_area = Vector2.ZERO #where player target destination is
+var movement: bool = false #flag check if in motion or not
 
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("move_right"):
-		currPos[0] += 16
-		AnimSprite2d.play("idle_right")
-	elif event.is_action_pressed("move_left"):
-		currPos[0] -= 16
-		AnimSprite2d.play("idle_left")
+
+func _ready() -> void:
+	#start target at current location
+	target_area = position
+
+
+func _physics_process(delta: float) -> void:
+	if !movement:
+		var direction = Vector2.ZERO
+		#calls for directions
+		if Input.is_action_just_pressed("move_left"):
+			direction = Vector2.LEFT
+			AnimSprite2d.play("idle_left")
+		elif Input.is_action_just_pressed("move_right"):
+			direction = Vector2.RIGHT
+			AnimSprite2d.play("idle_right")
+		elif Input.is_action_just_pressed("move_up"):
+			direction = Vector2.UP
+		elif Input.is_action_just_pressed("move_down"):
+			direction = Vector2.DOWN
+		
+		if direction != Vector2.ZERO:
+			#update target position based on direction and grid size
+			target_area += direction * grid_size
+			movement = true
 	
-	elif event.is_action_pressed("move_down"):
-		currPos[1] += 16
-	
-	elif event.is_action_pressed("move_up"):
-		currPos[1] -= 16
-	
-	
-	self.position = Vector2(currPos[0], currPos[1])
-	
-
-
-
-
-#func _process(delta: float) -> void:
-	#var direction: Vector2
-	
-	
+	if movement:
+		#move the player to the target area
+		position = position.move_toward(target_area, SPEED * delta)
+		#check if close enough to target to snap and stop
+		if position.distance_to(target_area) < SPEED * delta:
+			position = target_area
+			movement = false
+		
+		if target_area == collision_mask:
+			movement = false

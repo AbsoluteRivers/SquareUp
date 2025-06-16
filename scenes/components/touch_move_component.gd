@@ -1,0 +1,2 @@
+class_name TouchMoveComponent
+extends Area2D

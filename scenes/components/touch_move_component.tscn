@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqwp6kr31onca"]
+
+[ext_resource type="Script" uid="uid://bl3pgwcjbklyi" path="res://scenes/components/touch_move_component.gd" id="1_shtf2"]
+
+[node name="TouchMoveComponent" type="Area2D"]
+script = ExtResource("1_shtf2")

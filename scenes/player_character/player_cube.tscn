@@ -51,6 +51,7 @@ animations = [{
 size = Vector2(14, 14)
 
 [node name="PlayerCube" type="CharacterBody2D" node_paths=PackedStringArray("AnimSprite2d")]
+collision_mask = 10
 script = ExtResource("1_1sfah")
 AnimSprite2d = NodePath("AnimatedSprite2D")
 

@@ -12,3 +12,4 @@
 - Created character scene for the player character  
 - Provided grid-based movement for player  
 - Created tilemaps for stage level  
+*Bug: Movement not optimized for tilemap*  
