@@ -10,3 +10,5 @@
 - Started creating project SquareUp
 - Designed simple pixel art for the game
 - Created character scene for the player character  
+- Provided grid-based movement for player  
+- Created tilemaps for stage level  
