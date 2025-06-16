@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://de8lbkyknqhsf" path="res://scenes/player_character/player_cube.gd" id="1_1sfah"]
 [ext_resource type="Texture2D" uid="uid://d21hj33fnx8ye" path="res://assets/game/sprite/slimeball_cube.png" id="1_3b1fk"]
-[ext_resource type="Script" uid="uid://bn5pdttrynmrr" path="res://scripts/node_state_machine.gd" id="2_1sfah"]
+[ext_resource type="Script" path="res://scripts/node_state_machine.gd" id="2_1sfah"]
 [ext_resource type="Script" uid="uid://c47xcn7fsdndt" path="res://scenes/player_character/idle.gd" id="3_vi8rl"]
 [ext_resource type="Script" uid="uid://fix5eodqbm5f" path="res://scenes/player_character/move.gd" id="4_74874"]
 
@@ -33,7 +33,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_left",
-"speed": 4.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -44,7 +44,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_right",
-"speed": 4.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk4xw"]
@@ -57,7 +57,6 @@ script = ExtResource("1_1sfah")
 sprite_frames = SubResource("SpriteFrames_7th1q")
 animation = &"idle_right"
 autoplay = "idle_right"
-frame_progress = 0.598258
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wk4xw")
