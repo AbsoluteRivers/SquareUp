@@ -1,2 +1,8 @@
-# SquareUp
-A small puzzle game made in Godot 4
+# SquareUp  
+## Description  
+``This is a small Sokoban-style puzzle game utilizing Godot 4 engine and GDScript``
+
+
+---
+
+##
