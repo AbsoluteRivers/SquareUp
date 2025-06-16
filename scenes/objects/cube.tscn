@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c46te44wkxn4i"]
+
+[ext_resource type="Shader" uid="uid://bhwwvjcsgallv" path="res://scenes/objects/cube_shader.gdshader" id="1_rdfas"]
+[ext_resource type="Texture2D" uid="uid://d21hj33fnx8ye" path="res://assets/game/sprite/slimeball_cube.png" id="2_g8qye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yeygx"]
+shader = ExtResource("1_rdfas")
+shader_parameter/original_0 = Color(0.517647, 0.419608, 0.160784, 1)
+shader_parameter/original_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(1, 1, 0.647059, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hqc0"]
+atlas = ExtResource("2_g8qye")
+region = Rect2(2, 2, 12, 12)
+
+[node name="cube" type="Sprite2D"]
+material = SubResource("ShaderMaterial_yeygx")
+texture = SubResource("AtlasTexture_4hqc0")

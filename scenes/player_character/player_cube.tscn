@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyjfgjuhssytj"]
+
+[ext_resource type="Script" uid="uid://de8lbkyknqhsf" path="res://scenes/player_character/player_cube.gd" id="1_1sfah"]
+[ext_resource type="Texture2D" uid="uid://d21hj33fnx8ye" path="res://assets/game/sprite/slimeball_cube.png" id="1_3b1fk"]
+[ext_resource type="Script" uid="uid://bn5pdttrynmrr" path="res://scripts/node_state_machine.gd" id="2_1sfah"]
+[ext_resource type="Script" uid="uid://c47xcn7fsdndt" path="res://scenes/player_character/idle.gd" id="3_vi8rl"]
+[ext_resource type="Script" uid="uid://fix5eodqbm5f" path="res://scenes/player_character/move.gd" id="4_74874"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5khn2"]
+atlas = ExtResource("1_3b1fk")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsc5g"]
+atlas = ExtResource("1_3b1fk")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_275h8"]
+atlas = ExtResource("1_3b1fk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2eyo"]
+atlas = ExtResource("1_3b1fk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7th1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5khn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsc5g")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_275h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2eyo")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk4xw"]
+size = Vector2(14, 14)
+
+[node name="PlayerCube" type="CharacterBody2D"]
+script = ExtResource("1_1sfah")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7th1q")
+animation = &"idle_right"
+autoplay = "idle_right"
+frame_progress = 0.598258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wk4xw")
+
+[node name="state_machine" type="Node" parent="."]
+script = ExtResource("2_1sfah")
+
+[node name="idle" type="Node" parent="state_machine"]
+script = ExtResource("3_vi8rl")
+
+[node name="move" type="Node" parent="state_machine"]
+script = ExtResource("4_74874")
