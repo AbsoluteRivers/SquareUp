@@ -10,6 +10,6 @@ export_presets.cfg
 *.sln
 *.user
 *.swp
-scenes/test_folder/
+scenes/test_scenes/
 icon.svg
 *.tmp
