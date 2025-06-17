@@ -11,8 +11,9 @@
 
 ## Features (In Progress)
 - Simple Pixel Art Graphics
-- Basic Tile-Based Movement System  
-- Scoring System
+- Basic Grid-Based Tile Movement  
+- Object Physics Interaction  
+  
 
 ---
 
