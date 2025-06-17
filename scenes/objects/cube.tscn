@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c46te44wkxn4i"]
+[gd_scene load_steps=8 format=3 uid="uid://c46te44wkxn4i"]
 
 [ext_resource type="Shader" uid="uid://bhwwvjcsgallv" path="res://scenes/objects/cube_shader.gdshader" id="1_rdfas"]
 [ext_resource type="Texture2D" uid="uid://d21hj33fnx8ye" path="res://assets/game/sprite/slimeball_cube.png" id="2_g8qye"]
+[ext_resource type="Script" uid="uid://blgevh0mh1ao" path="res://scenes/objects/cube.gd" id="2_yeygx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yeygx"]
 shader = ExtResource("1_rdfas")
@@ -24,8 +25,9 @@ region = Rect2(2, 2, 12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeygx"]
 size = Vector2(12, 12)
 
-[node name="cube" type="RigidBody2D"]
+[node name="cube" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_yeygx")
+script = ExtResource("2_yeygx")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rdfas")

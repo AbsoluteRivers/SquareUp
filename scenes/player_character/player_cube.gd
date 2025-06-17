@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var SPEED: float = 100.0 #speed of travelling to next tile
 @export var grid_size: int = 16 #dimensions of each square in land
 
+@onready var tile_map: Node = get_node("../TileMaps/WalkableTileLayer")
+
 var target_area = Vector2.ZERO #where player target destination is
 var movement: bool = false #flag check if in motion or not
 
@@ -15,6 +17,7 @@ var movement: bool = false #flag check if in motion or not
 func _ready() -> void:
 	#start target at current location
 	target_area = position
+
 
 
 func _physics_process(delta: float) -> void:
@@ -36,6 +39,8 @@ func _physics_process(delta: float) -> void:
 			#update target position based on direction and grid size
 			target_area += direction * grid_size
 			movement = true
+		
+		
 	
 	if movement:
 		#move the player to the target area
@@ -43,6 +48,22 @@ func _physics_process(delta: float) -> void:
 		#check if close enough to target to snap and stop
 		if position.distance_to(target_area) < SPEED * delta:
 			position = target_area
+			var curr_tile = tile_map.local_to_map(tile_map.to_local(global_position))
+			var prev_tile: Vector2i
+			
+			if curr_tile != prev_tile:
+				var tile_arr = []
+				tile_arr.append(curr_tile)
+				prev_tile = tile_arr[0]
+				#print("current tile: ", curr_tile, " previous tile: ", prev_tile)
+				
+			
+			
 			movement = false
+			
 		
 		
+		#var curr_tile = tile_map.local_to_map(tile_map.to_local(global_position))
+		#print(curr_tile)
+	
+	

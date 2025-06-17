@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctfx0qqi8wt1v"]
+
+[ext_resource type="Script" uid="uid://qmeykctt4ajv" path="res://scenes/components/win_stage_component.gd" id="1_dnttb"]
+
+[node name="WinStageComponent" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_dnttb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
